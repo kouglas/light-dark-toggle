@@ -1,0 +1,157 @@
+/* 
+
+html {
+    border: 2px solid red;
+}
+body {
+    margin: 350px;
+    text-align: center;
+    border: 2px solid lime;
+
+}
+
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-bg: #383e49;
+    --light-bg: #fffafa;
+    --light-text: #fffafa;
+    --highlight: #ffd60a;
+}
+
+ body {
+    margin: 350px;
+    text-align: center;
+    border: 2px solid lime;
+    font-family: 'Inter', sans-serif;
+
+ }
+
+
+ img {
+    max-width: 275px;
+ }
+
+
+  /*  toggle */
+
+ .theme-toggle {
+    display: block;
+    cursor: pointer;
+    height: 30px;
+    width: 50px;
+    border: 3px solid var(--dark-bg);
+    margin-left: auto;
+    margin-bottom: 0.5em ;
+    position: relative;
+    background-color: var(--highlight);
+    border-radius: 1rem;
+
+ }
+
+ .theme-toggle::after {
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    left: 20px;
+    background-color: var(--dark-bg);
+    border-radius: 50%;
+    transition-duration: 0.4s;
+    
+ }
+
+ .theme-toggle::before {
+    content: '☀️';
+    font-size: 20px;
+    z-index: 20;
+    position: absolute;
+    left: 23px;
+    top: 1px;
+    transition-duration: 0.4s;
+ }
+
+
+
+ button {
+    background-color: var(--highlight);
+    border:  var(--highlight);
+    padding: 8px 12px;
+ }
+
+
+
+ /* dark class */
+
+ .dark .theme-toggle::before {
+    content: '🌙';
+    font-size: 20px;
+    z-index: 20;
+    position: absolute;
+    font-size: 20px;
+    top: 1px;
+    left: -1px;
+    transition-duration: 0.4s;
+ }
+
+.dark {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    animation: switchToDark 0.4s linear;
+    animation-fill-mode: forwards;
+}
+
+.dark .theme-toggle {
+    background-color: var(--light-text);
+    color: var(--light-text);
+    border: 3px solid black;
+}
+
+.dark .theme-toggle::after {
+    content: '';
+    left: 0;
+    transition-duration: 0.4s;
+    background-color: var(--dark-bg);
+    border-radius: 50%;
+    transition-duration: 0.4s;
+    
+    
+}
+ 
+
+
+
+@keyframes switchToDark {
+    0%{
+        background-color: var(--light-bg);
+    }
+    100%{
+        background-color: var(--dark-bg);
+    }
+}
+
+
+ /* media queries */
+
+ @media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--dark-bg);
+        color: var(--light-text);
+    }
+ }
+
+
+
+p {
+    font-size: 10px;
+}
+
+.message {
+    width: 70px;
+    margin-left: auto;
+}
